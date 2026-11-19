@@ -1,0 +1,11 @@
+.lake/
+build/
+dist/
+*.olean
+*.ilean
+*.trace
+*.log
+.DS_Store
+certgen/target/
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,41 @@
+\section{Top-level target}
+
+\begin{theorem}[Ternary Goldbach]
+  \label{thm:ternary-goldbach}
+  \lean{HelfgottBlueprint.ternary_goldbach}
+  \uses{lem:major-arc-estimate,lem:minor-arc-estimate,lem:finite-interval-certificate}
+  Every odd natural number $n > 5$ is a sum of three primes.
+\end{theorem}
+
+The Lean declaration currently contains \texttt{sorry}. This blueprint records
+the intended dependency structure and must not be cited as a completed proof.
+
+\section{Circle-method components}
+
+\begin{lemma}[Explicit major-arc estimate]
+  \label{lem:major-arc-estimate}
+  \lean{HelfgottBlueprint.helfgott_major_arc_estimate}
+  Supply an explicit main term and an explicit error bound on the major arcs.
+\end{lemma}
+
+\begin{lemma}[Explicit minor-arc estimate]
+  \label{lem:minor-arc-estimate}
+  \lean{HelfgottBlueprint.helfgott_minor_arc_estimate}
+  Supply an explicit bound for the log-weighted prime exponential sum on the
+  minor arcs.
+\end{lemma}
+
+\begin{lemma}[Finite interval certificate]
+  \label{lem:finite-interval-certificate}
+  \lean{HelfgottBlueprint.helfgott_finite_interval_certificate}
+  Import and verify a finite family of three-prime certificates inside Lean.
+\end{lemma}
+
+\section{Assembly}
+
+\begin{proof}[Proof outline]
+  \uses{lem:major-arc-estimate,lem:minor-arc-estimate,lem:finite-interval-certificate}
+  Combine the major-arc main term, the minor-arc cancellation bound, and the
+  finite interval certificate. The assembly theorem in Lean is currently a
+  placeholder and remains to be proved.
+\end{proof}

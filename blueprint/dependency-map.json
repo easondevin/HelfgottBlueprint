@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {"id": "thm:ternary-goldbach", "lean": "HelfgottBlueprint.ternary_goldbach", "status": "sorry"},
+    {"id": "lem:major-arc-estimate", "lean": "HelfgottBlueprint.helfgott_major_arc_estimate", "status": "sorry"},
+    {"id": "lem:minor-arc-estimate", "lean": "HelfgottBlueprint.helfgott_minor_arc_estimate", "status": "sorry"},
+    {"id": "lem:finite-interval-certificate", "lean": "HelfgottBlueprint.helfgott_finite_interval_certificate", "status": "sorry"}
+  ],
+  "edges": [
+    {"from": "lem:major-arc-estimate", "to": "thm:ternary-goldbach"},
+    {"from": "lem:minor-arc-estimate", "to": "thm:ternary-goldbach"},
+    {"from": "lem:finite-interval-certificate", "to": "thm:ternary-goldbach"}
+  ]
+}

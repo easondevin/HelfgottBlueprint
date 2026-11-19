@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: true
+          test: false
+          lint: false
+          use-mathlib-cache: true
+
+  certificates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify checked-in certificate sample
+        run: python3 scripts/verify_certificate.py certificates/sample.jsonl
+      - name: Regenerate certificate sample with Rust
+        run: |
+          cargo run --quiet --manifest-path certgen/Cargo.toml -- 31 > /tmp/three-prime-certificates.jsonl
+          cmp certificates/sample.jsonl /tmp/three-prime-certificates.jsonl
+
+  sorry-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check_sorries.py

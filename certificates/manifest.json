@@ -1,0 +1,6 @@
+{
+  "schema": "three-prime-certificate/v1",
+  "description": "Each JSONL record contains n, p, q, r and asserts n = p + q + r with p, q, r prime.",
+  "range": {"lower": 7, "upper": 31, "parity": "odd"},
+  "status": "small-sample only; not a Helfgott-Platt interval certificate"
+}
